@@ -1,0 +1,45 @@
+nav{
+    margin-bottom:30px;
+}
+
+.meta-data{
+    color:#0074d9;
+    margin-bottom:25px;
+}
+
+ul strong{
+    color:#0074d9;
+    margin-right:5px;
+}
+
+ul{
+    list-style:none;
+    padding-left:0;
+    margin-top:25px;
+}
+
+.fa-star{
+    color:#FFD700;
+}
+
+.poster{
+    margin-bottom:25px;
+}
+
+.landing-title{
+    margin-top:30px;
+}
+
+.search-bar{
+    width:400px;
+}
+
+.search-btn{
+    background:#0074d9;
+    color:#fff;
+}
+
+.search-btn:hover{
+    color:#fff;
+    opacity:0.7;
+}

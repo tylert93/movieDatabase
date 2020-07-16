@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<div class="container d-flex flex-column justify-content-center">
+
+    <h2 class="text-center landing-title">Find a movie</h2>
+
+    <form class="mt-4" action="/results" method="GET">
+        <div class="form-group d-flex flex-row justify-content-center">
+            <input class="form-control mr-2 search-bar" type="text" name="search" placeholder="search" required>
+            <button type="submit" class="btn search-btn"><i class="fas fa-search"></i></button>
+        </div>   
+    </form>
+
+</div>
+
+<%- include("partials/footer") %>

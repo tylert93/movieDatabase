@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+
+<div class="container">
+
+    <h1><%= data.Title %></h1>
+
+    <div class="meta-data">
+        <strong class="mr-2"><%= data.Rated %></strong> | <strong class="mx-2"><%= data.Runtime %></strong> | <strong class="mx-2"><%= data.Genre %></strong> | <strong class="mx-2"><%= data.Released %></strong>   
+    </div>
+
+    <div class="row d-flex flex-column-reverse flex-md-row">
+
+        <div class="col-12 col-md-8">
+
+            <div>
+                <%= data.Plot %>
+            </div>
+
+            <ul>
+                <li class="mb-3"><strong>Director:</strong> <%= data.Director %></li>
+                <li class="mb-3"><strong>Writer:</strong> <%= data.Writer %></li>
+                <li class="mb-3"><strong>Actors:</strong> <%= data.Actors %></li>
+                <li class="mb-3"><strong>Lanuage:</strong> <%= data.Language %></li>
+                <li class="mb-3"><strong>Awards:</strong> <%= data.Awards %></li>
+            </ul>
+
+            
+            <% if(data.Ratings !== undefined){ %>
+                <div>
+                    <h5>Ratings <i class="fas fa-star"></i></h5>
+    
+                    <% if(data.Ratings[0] !== undefined){ %>
+                        <div><%= data.Ratings[0].Source %> - <%= data.Ratings[0].Value %></div>
+                    <% } else { %>
+                        <p>None</p>
+                    <% } %>    
+                    <% if(data.Ratings[1] !== undefined){ %>
+                        <div><%= data.Ratings[1].Source %> - <%= data.Ratings[1].Value %></div>
+                    <% } %>
+    
+                    <% if(data.Ratings[2] !== undefined){ %>
+                        <div><%= data.Ratings[2].Source %> - <%= data.Ratings[2].Value %></div>
+                    <% } %>
+                    
+                </div>
+            <% } %>
+
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img class="img-fluid poster mx-auto d-block" src="<%= data.Poster %>" alt=" no available image">
+        </div>
+
+    </div>
+
+</div>
+
+<%- include("partials/footer") %>

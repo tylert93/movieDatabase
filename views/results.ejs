@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+<div class="container">
+    <h3 class="mb-3">Search results</h3>
+
+    <% if(data !== undefined){ %>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"> 
+
+            <% data.forEach(function(item){ %>
+                <div class="col mb-5">
+                    <div class="card">
+                        <img src="<%= item['Poster'] %>" class="card-img-top img-fluid" alt="no available image">
+                        <div class="card-body">
+                            <a href="/results/<%= item['imdbID']%>"><h5 class="card-title"><%= item["Title"] %></h5></a>
+                            <p class="card-text"><%= item["Year"] %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+
+    <% } else {%>
+
+        <h5>No matches found for '<%= query %>'</h5>
+        <a href="/">Go back</a>
+    
+    <% } %>
+
+</div>
+
+<%- include("partials/footer") %>
