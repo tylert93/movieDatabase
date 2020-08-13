@@ -1,8 +1,8 @@
 require('dotenv').config()
 
-var express = require("express"),
-    app = express(),
-    axios = require("axios");
+const express = require("express"),
+      app = express(),
+      axios = require("axios");
 
 app.set("view engine", "ejs");
 
@@ -14,11 +14,11 @@ app.get("/", function(req, res){
 })
 
 app.get("/results", function(req, res){
-    var query = req.query.search;
-    var url = "http://www.omdbapi.com/?apikey=" + process.env.OMDB_KEY + "&s=" + query;
+    let query = req.query.search,
+        url = `http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&s=${query}`;
     axios.get(url)
     .then(function(response){
-      var data = response["data"].Search;
+      let data = response["data"].Search;
       res.render("results", {data:data, query:query})
     })
     .catch(function(error){
@@ -29,11 +29,11 @@ app.get("/results", function(req, res){
 })
 
 app.get("/results/:id", function(req, res){
-    var id = req.params.id;
-    var url = "http://www.omdbapi.com/?apikey=" + process.env.OMDB_KEY + "&i=" + id;
+    let id = req.params.id,
+        url = `http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&i=${id}`;
     axios.get(url)
     .then(function(response){
-        var data = response["data"];
+        let data = response["data"];
         res.render("show", {data:data})
     })
     .catch(function(error){
