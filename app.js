@@ -13,39 +13,39 @@ app.get("/", (req, res) => {
     res.render("search");
 })
 
-app.get("/results", function(req, res){
+app.get("/results", (req, res) => {
     let query = req.query.search,
         url = `http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&s=${query}`;
     axios.get(url)
-    .then(function(response){
+    .then((response) => {
       let data = response["data"].Search;
       res.render("results", {data:data, query:query})
     })
-    .catch(function(error){
+    .catch((error) => {
         console.log(error);
         res.render("error");
     })
 
 })
 
-app.get("/results/:id", function(req, res){
+app.get("/results/:id", (req, res) => {
     let id = req.params.id,
         url = `http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&i=${id}`;
     axios.get(url)
-    .then(function(response){
+    .then((response) => {
         let data = response["data"];
         res.render("show", {data:data})
     })
-    .catch(function(error){
+    .catch((error) => {
         console.log(error);
         res.render("error");        
     })
 });
 
-app.get("*", function(req, res){
+app.get("*", (req, res) => {
     res.render("error");
 });
       
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.PORT, process.env.IP, () => {
     console.log("movie database in running ...");
 });      
