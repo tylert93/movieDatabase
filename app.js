@@ -9,24 +9,24 @@ app.set("view engine", "ejs");
 app.use(express.static("node_modules/@fortawesome/fontawesome-free"));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
+app.get("/", function(req, res){
     res.render("search");
-});
+})
 
-app.get("/results", (req, res) => {
+app.get("/results", function(req, res){
     let query = req.query.search,
         url = `http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&s=${query}`;
     axios.get(url)
-    .then((response) => {
+    .then(function(response){
       let data = response["data"].Search;
       res.render("results", {data:data, query:query})
     })
-    .catch((error) => {
+    .catch(function(error){
         console.log(error);
         res.render("error");
     })
 
-});
+})
 
 app.get("/results/:id", function(req, res){
     let id = req.params.id,
