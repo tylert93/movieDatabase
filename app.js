@@ -1,11 +1,11 @@
-require('dotenv').config()
+import express from 'express';
+import axios from 'axios';
+import dotenv from 'dotenv';
 
-const express = require("express"),
-      app = express(),
-      axios = require("axios");
+const app = express();
 
+dotenv.config();
 app.set("view engine", "ejs");
-
 app.use(express.static("node_modules/@fortawesome/fontawesome-free"));
 app.use(express.static("public"));
 
